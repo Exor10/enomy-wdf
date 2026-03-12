@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enomy Finance | Smart Finance Tools</title>
+  <meta name="description" content="Enomy Finance delivers premium finance tools, including a real-time currency converter, to help you make smarter money decisions." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: '#0F172A',
+            accent: '#3B82F6',
+            highlight: '#22C55E',
+            surface: '#F8FAFC'
+          },
+          fontFamily: {
+            inter: ['Inter', 'sans-serif'],
+            poppins: ['Poppins', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="bg-surface text-navy font-inter">
+  <header class="sticky top-0 z-50 backdrop-blur-lg bg-white/65 border-b border-slate-200/80">
+    <nav class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+      <a href="#home" class="flex items-center gap-3">
+        <img src="assets/logo.svg" alt="Enomy Finance logo" class="h-10 w-10 rounded-xl shadow-md" />
+        <span class="font-poppins font-semibold text-lg">Enomy Finance</span>
+      </a>
+      <ul class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#tools" class="nav-link">Tools</a></li>
+        <li><a href="converter.html" class="nav-link">Converter</a></li>
+        <li><a href="#" class="nav-link">Login</a></li>
+      </ul>
+      <a href="converter.html" class="md:hidden rounded-full bg-accent text-white px-4 py-2 text-sm font-semibold shadow-lg shadow-blue-200">Open Converter</a>
+    </nav>
+  </header>
+
+  <main id="home">
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 pt-16 pb-20 grid lg:grid-cols-2 gap-12 items-center">
+      <div class="space-y-8">
+        <p class="inline-flex items-center gap-2 text-sm text-accent bg-blue-50 px-4 py-2 rounded-full border border-blue-100">Live finance intelligence for modern teams</p>
+        <div class="space-y-4">
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-poppins font-bold leading-tight">Smart Finance Tools for Your Future</h1>
+          <p class="text-slate-600 text-lg">Track markets, convert currencies, and plan your money confidently with a sleek financial toolkit built for fast decision-making.</p>
+        </div>
+        <div class="flex flex-wrap gap-4">
+          <a href="converter.html" class="btn-primary">Try Currency Converter</a>
+          <a href="#tools" class="btn-secondary">Explore Tools</a>
+        </div>
+      </div>
+      <div class="glass-card p-8 sm:p-10 space-y-8">
+        <div class="grid sm:grid-cols-3 gap-4 text-center">
+          <div>
+            <p class="stat-number" data-target="6">0</p>
+            <p class="stat-label">Currencies supported</p>
+          </div>
+          <div>
+            <p class="stat-number" data-target="24">0</p>
+            <p class="stat-label">Live exchange rates</p>
+          </div>
+          <div>
+            <p class="stat-number" data-target="3">0</p>
+            <p class="stat-label">Financial tools</p>
+          </div>
+        </div>
+        <canvas id="homeTrendChart" class="max-h-60"></canvas>
+      </div>
+    </section>
+
+    <section id="tools" class="max-w-6xl mx-auto px-4 sm:px-6 pb-20">
+      <div class="text-center mb-10">
+        <h2 class="font-poppins text-3xl sm:text-4xl font-semibold mb-4">Finance Tools Designed for Clarity</h2>
+        <p class="text-slate-600 max-w-2xl mx-auto">A premium suite of practical modules for personal and team finance planning.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <article class="tool-card">
+          <h3>Currency Converter</h3>
+          <p>Convert global currencies with real-time rates and clear conversion history context.</p>
+          <a href="converter.html">Open Tool →</a>
+        </article>
+        <article class="tool-card">
+          <h3>Savings Planner</h3>
+          <p>Map your monthly contributions, track milestones, and forecast goals visually.</p>
+          <a href="dashboard.html">View Preview →</a>
+        </article>
+        <article class="tool-card">
+          <h3>Investment Tools</h3>
+          <p>AI-guided investment modules are coming soon to support smarter portfolio habits.</p>
+          <span class="text-highlight font-semibold">Coming Soon</span>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-navy text-slate-200 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row justify-between gap-8">
+      <div>
+        <p class="font-poppins text-lg font-semibold text-white">Enomy Finance</p>
+        <p class="text-slate-400 text-sm mt-2">Premium digital finance experiences.</p>
+      </div>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#" class="footer-link">Company</a></li>
+        <li><a href="#" class="footer-link">Privacy</a></li>
+        <li><a href="#" class="footer-link">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
