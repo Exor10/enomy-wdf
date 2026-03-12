@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard Preview | Enomy Finance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: '#0F172A',
+            accent: '#3B82F6',
+            highlight: '#22C55E',
+            surface: '#F8FAFC'
+          },
+          fontFamily: {
+            inter: ['Inter', 'sans-serif'],
+            poppins: ['Poppins', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="bg-surface text-navy font-inter min-h-screen">
+  <main class="max-w-5xl mx-auto px-4 sm:px-6 py-16">
+    <a href="index.html" class="btn-secondary text-sm">← Back Home</a>
+    <section class="glass-card p-8 mt-6">
+      <h1 class="font-poppins text-3xl font-bold">Dashboard Preview</h1>
+      <p class="text-slate-600 mt-2">A preview of upcoming finance dashboards and planning modules.</p>
+      <div class="grid sm:grid-cols-3 gap-4 mt-8">
+        <div class="bg-white rounded-2xl p-4 shadow-soft">
+          <p class="text-slate-500 text-sm">Monthly Savings</p>
+          <p class="text-2xl font-bold text-highlight mt-2">$1,240</p>
+        </div>
+        <div class="bg-white rounded-2xl p-4 shadow-soft">
+          <p class="text-slate-500 text-sm">FX Alerts Active</p>
+          <p class="text-2xl font-bold text-accent mt-2">12</p>
+        </div>
+        <div class="bg-white rounded-2xl p-4 shadow-soft">
+          <p class="text-slate-500 text-sm">Goal Progress</p>
+          <p class="text-2xl font-bold mt-2">68%</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
