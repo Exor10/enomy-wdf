@@ -4,12 +4,113 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Enomy Finance</title>
-  <meta http-equiv="refresh" content="0; url=./enomy-finance-site/index.html" />
+  <meta name="description" content="Professional financial tools powered by real-time currency exchange rates." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    window.location.replace('./enomy-finance-site/index.html');
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: '#3B82F6',
+            ink: '#0F172A',
+            ok: '#22C55E'
+          },
+          fontFamily: {
+            inter: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    };
   </script>
+  <link rel="stylesheet" href="./css/styles.css" />
 </head>
-<body>
-  <p>Redirecting to Enomy Finance… <a href="./enomy-finance-site/index.html">Click here if not redirected.</a></p>
+<body class="font-inter bg-slate-50 text-ink">
+  <header class="sticky top-0 z-50 bg-white/85 backdrop-blur border-b border-slate-200">
+    <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="./index.html" class="flex items-center gap-3">
+        <svg width="40" height="40" viewBox="0 0 100 100" aria-label="Enomy Finance logo" role="img">
+          <circle cx="50" cy="50" r="40" fill="#3B82F6" />
+          <path d="M34 66V34H44L61 56V34H71V66H61L44 44V66H34Z" fill="white"/>
+        </svg>
+        <span class="font-semibold text-lg">Enomy Finance</span>
+      </a>
+      <ul class="flex items-center gap-6 text-sm font-medium">
+        <li><a class="nav-link" href="./index.html">Home</a></li>
+        <li><a class="nav-link" href="./converter.html">Currency Converter</a></li>
+        <li><span class="text-slate-500">Tools (coming soon)</span></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="max-w-6xl mx-auto px-4 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h1 class="text-4xl md:text-5xl font-bold leading-tight">Welcome to Enomy Finance</h1>
+        <p class="text-slate-600 text-lg mt-4">Professional financial tools powered by real-time currency exchange rates</p>
+        <a href="./converter.html" class="inline-block mt-8 px-6 py-3 rounded-full bg-brand text-white font-semibold shadow-lg shadow-blue-200 hover:-translate-y-0.5 transition">Open Currency Converter</a>
+      </div>
+      <div class="card p-6 md:p-8">
+        <h2 class="text-xl font-semibold mb-5">Live Platform Stats</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <article class="stat-card">
+            <p class="stat-value" data-target="6">0</p>
+            <p class="stat-label">Currencies supported</p>
+          </article>
+          <article class="stat-card">
+            <p class="stat-value" data-target="1">0</p>
+            <p class="stat-label">Live exchange rates</p>
+          </article>
+          <article class="stat-card">
+            <p class="stat-value" data-target="3">0</p>
+            <p class="stat-label">Future financial tools</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto px-4 pb-16">
+      <div class="grid md:grid-cols-3 gap-5">
+        <article class="feature-card">
+          <h3>Currency Converter</h3>
+          <p>Convert between major currencies using live rates fetched from a public API.</p>
+          <a href="./converter.html">Go to converter →</a>
+        </article>
+        <article class="feature-card">
+          <h3>Savings Planner</h3>
+          <p>Goal planning tools are in progress to help structure monthly savings habits.</p>
+          <span class="pill">Coming soon</span>
+        </article>
+        <article class="feature-card">
+          <h3>Investment Tools</h3>
+          <p>Future modules will provide market insight dashboards and portfolio views.</p>
+          <span class="pill">Coming soon</span>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-200 bg-white">
+    <div class="max-w-6xl mx-auto px-4 py-6 text-sm text-slate-600">© Enomy Finance. All rights reserved.</div>
+  </footer>
+
+  <script>
+    (function () {
+      const stats = document.querySelectorAll('.stat-value');
+      stats.forEach((item) => {
+        const target = Number(item.dataset.target || 0);
+        const start = performance.now();
+        const duration = 900;
+        function tick(now) {
+          const p = Math.min((now - start) / duration, 1);
+          item.textContent = String(Math.floor(target * p));
+          if (p < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      });
+    })();
+  </script>
 </body>
 </html>
