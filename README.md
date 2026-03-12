@@ -35,16 +35,3 @@ js/
 README.md
 ```
 
-## Deployment (GitHub Pages)
-
-1. Create a GitHub repository.
-2. Upload these files to the repository root.
-3. Open **Settings → Pages**.
-4. Set source to **Deploy from a branch**.
-5. Select branch: **main**, folder: **/ (root)**.
-6. Save and wait for Pages deployment.
-
-## Notes
-
-- `.nojekyll` is included to ensure GitHub Pages serves files directly.
-- All paths are relative (for example `./js/currency.js`) for compatibility.
