@@ -1,0 +1,12 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Enomy Finance logo">
+  <defs>
+    <linearGradient id="g" x1="16" y1="8" x2="112" y2="120" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3B82F6"/>
+      <stop offset="1" stop-color="#22C55E"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="112" height="112" rx="28" fill="#0F172A"/>
+  <path d="M32 86V42H42L66 72V42H76V86H66L42 56V86H32Z" fill="url(#g)"/>
+  <circle cx="92" cy="50" r="14" fill="url(#g)"/>
+  <path d="M84 84C84 78.4772 88.4772 74 94 74H98V94H94C88.4772 94 84 89.5228 84 84Z" fill="#3B82F6"/>
+</svg>
