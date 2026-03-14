@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Savings & Investments | Enomy Finance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body class="font-inter bg-slate-50 text-ink min-h-screen">
+  <header class="bg-white border-b border-slate-200">
+    <nav class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center gap-4 flex-wrap">
+      <a href="./index.html" class="font-semibold">← Enomy Finance</a>
+      <ul class="flex items-center gap-5 text-sm font-medium flex-wrap">
+        <li><a class="nav-link" href="./index.html">Home</a></li>
+        <li><a class="nav-link" href="./converter.html">Currency Converter</a></li>
+        <li><a class="nav-link" href="./savings.html">Savings & Investments</a></li>
+        <li><a class="nav-link" href="./activity.html">Saved Quotes / Recent Activity</a></li>
+        <li><button class="nav-link" data-auth-placeholder>Login</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-10 grid lg:grid-cols-5 gap-6">
+    <section class="card p-6 lg:col-span-3">
+      <h1 class="text-3xl font-bold mb-2">Savings & Investment Calculator</h1>
+      <p class="text-slate-600 mb-6">Projection model for 1, 5, and 10 years (GBP formatting).</p>
+
+      <div id="savings-error" class="status-box hidden"></div>
+      <div id="savings-success" class="status-box success hidden"></div>
+
+      <div class="grid sm:grid-cols-2 gap-4">
+        <label class="field"><span>Initial lump sum (£)</span><input id="initial-lump" type="number" min="0" step="0.01" value="500" /></label>
+        <label class="field"><span>Monthly investment (£)</span><input id="monthly-amount" type="number" min="0" step="0.01" value="150" /></label>
+        <label class="field sm:col-span-2"><span>Investment type</span>
+          <select id="investment-type">
+            <option value="basic">Basic Savings Plan</option>
+            <option value="plus">Savings Plan Plus</option>
+            <option value="managed">Managed Stock Investments</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="mt-5 flex gap-3 flex-wrap">
+        <button id="calculate-savings-btn" class="btn-primary">Calculate Projections</button>
+        <button id="save-plan-btn" class="btn-secondary">Save Projection (Demo)</button>
+      </div>
+
+      <div id="projection-results" class="mt-6 space-y-4"></div>
+    </section>
+
+    <aside class="lg:col-span-2 space-y-4">
+      <section class="card p-5">
+        <h3 class="font-semibold">Investment Type Rules</h3>
+        <p id="type-rules" class="text-sm text-slate-700 mt-2"></p>
+      </section>
+      <section class="card p-5">
+        <h3 class="font-semibold">Graphical Summary</h3>
+        <div id="summary-bars" class="space-y-3 mt-3"></div>
+      </section>
+    </aside>
+  </main>
+
+  <div id="global-message" class="hidden fixed bottom-4 right-4 z-50 max-w-sm"></div>
+
+  <script src="./js/storage.js"></script>
+  <script src="./js/ui.js"></script>
+  <script src="./js/validation.js"></script>
+  <script src="./js/savings.js"></script>
+</body>
+</html>

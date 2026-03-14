@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enomy Finance</title>
+  <meta name="description" content="Professional financial tools powered by real-time currency exchange rates." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: '#3B82F6',
+            ink: '#0F172A',
+            ok: '#22C55E'
+          },
+          fontFamily: { inter: ['Inter', 'sans-serif'] }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body class="font-inter bg-slate-50 text-ink">
+  <header class="sticky top-0 z-50 bg-white/85 backdrop-blur border-b border-slate-200">
+    <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between gap-4 flex-wrap">
+      <a href="./index.html" class="flex items-center gap-3">
+        <svg width="40" height="40" viewBox="0 0 100 100" aria-label="Enomy Finance logo" role="img">
+          <circle cx="50" cy="50" r="40" fill="#3B82F6" />
+          <path d="M34 66V34H44L61 56V34H71V66H61L44 44V66H34Z" fill="white"/>
+        </svg>
+        <span class="font-semibold text-lg">Enomy Finance</span>
+      </a>
+      <ul class="flex items-center gap-5 text-sm font-medium flex-wrap">
+        <li><a class="nav-link" href="./index.html">Home</a></li>
+        <li><a class="nav-link" href="./converter.html">Currency Converter</a></li>
+        <li><a class="nav-link" href="./savings.html">Savings & Investments</a></li>
+        <li><a class="nav-link" href="./activity.html">Saved Quotes / Recent Activity</a></li>
+        <li><button class="nav-link" data-auth-placeholder>Login</button></li>
+        <li><button class="nav-link" data-auth-placeholder>Register</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="max-w-6xl mx-auto px-4 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h1 class="text-4xl md:text-5xl font-bold leading-tight">Welcome to Enomy Finance</h1>
+        <p class="text-slate-600 text-lg mt-4">Professional financial tools powered by real-time currency exchange rates</p>
+        <div class="flex gap-3 flex-wrap mt-8">
+          <a href="./converter.html" class="btn-primary">Open Currency Converter</a>
+          <a href="./savings.html" class="btn-secondary">Open Savings Calculator</a>
+        </div>
+      </div>
+      <div class="card p-6 md:p-8">
+        <h2 class="text-xl font-semibold mb-5">Live Platform Stats</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <article class="stat-card"><p class="stat-value" data-target="6">0</p><p class="stat-label">Currencies supported</p></article>
+          <article class="stat-card"><p class="stat-value" data-target="1">0</p><p class="stat-label">Live exchange feed</p></article>
+          <article class="stat-card"><p class="stat-value" data-target="3">0</p><p class="stat-label">Financial tool tracks</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto px-4 pb-16">
+      <div class="grid md:grid-cols-3 gap-5">
+        <article class="feature-card"><h3>Currency Converter</h3><p>Includes transaction limit checks, fee-aware conversions, API fallback, and local activity tracking.</p><a href="./converter.html">Go to converter →</a></article>
+        <article class="feature-card"><h3>Savings & Investments</h3><p>Projection calculator for Basic, Plus, and Managed plans across 1, 5, and 10 years.</p><a href="./savings.html">Open calculator →</a></article>
+        <article class="feature-card"><h3>Saved Quotes / Activity</h3><p>Demo local-storage timeline for recent conversions, investment projections, and saved quote details.</p><a href="./activity.html">View activity →</a></article>
+      </div>
+      <p class="demo-banner mt-6">Demo mode: persistence uses localStorage only. Full security and database workflows require Spring MVC + Spring Security + MySQL.</p>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-200 bg-white"><div class="max-w-6xl mx-auto px-4 py-6 text-sm text-slate-600">© Enomy Finance. Frontend prototype.</div></footer>
+
+  <div id="global-message" class="hidden fixed bottom-4 right-4 z-50 max-w-sm"></div>
+
+  <script src="./js/storage.js"></script>
+  <script src="./js/ui.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Currency Converter | Enomy Finance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { colors: { brand:'#3B82F6', ink:'#0F172A' }, fontFamily: { inter:['Inter','sans-serif'] } } } };
+  </script>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body class="font-inter bg-slate-50 text-ink min-h-screen">
+  <header class="bg-white border-b border-slate-200">
+    <nav class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center gap-4 flex-wrap">
+      <a href="./index.html" class="font-semibold">← Enomy Finance</a>
+      <ul class="flex items-center gap-5 text-sm font-medium flex-wrap">
+        <li><a class="nav-link" href="./index.html">Home</a></li>
+        <li><a class="nav-link" href="./converter.html">Currency Converter</a></li>
+        <li><a class="nav-link" href="./savings.html">Savings & Investments</a></li>
+        <li><a class="nav-link" href="./activity.html">Saved Quotes / Recent Activity</a></li>
+        <li><button class="nav-link" data-auth-placeholder>Login</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-10 grid lg:grid-cols-5 gap-6">
+    <section class="card p-6 lg:col-span-3">
+      <h1 class="text-3xl font-bold mb-2">Currency Converter</h1>
+      <p class="text-slate-600 mb-6">Transaction limits: min 300 and max 5000 in source currency.</p>
+
+      <div id="converter-error" class="status-box hidden"></div>
+      <div id="converter-success" class="status-box success hidden"></div>
+
+      <div class="grid sm:grid-cols-2 gap-4">
+        <label class="field sm:col-span-2"><span>Amount</span><input id="amount" type="number" min="0" step="0.01" value="600" /></label>
+        <label class="field"><span>From currency</span><select id="from-currency"></select></label>
+        <label class="field"><span>To currency</span><select id="to-currency"></select></label>
+      </div>
+      <p id="inline-validation" class="text-red-700 text-sm mt-2"></p>
+
+      <div class="mt-5 flex gap-3 flex-wrap">
+        <button id="convert-btn" class="btn-primary">Convert</button>
+        <button id="retry-btn" class="btn-secondary">Retry API</button>
+        <button id="swap-btn" class="btn-secondary">Swap</button>
+      </div>
+
+      <div class="result mt-6 space-y-2">
+        <p class="text-sm text-slate-500 uppercase tracking-wide">Transaction Summary</p>
+        <p><strong>Original amount:</strong> <span id="original-amount">-</span></p>
+        <p><strong>Fee amount:</strong> <span id="fee-amount">-</span></p>
+        <p><strong>Net amount converted:</strong> <span id="net-amount">-</span></p>
+        <p><strong>Converted result:</strong> <span id="converted-value">-</span></p>
+        <p id="exchange-rate" class="text-slate-600">Exchange rate: -</p>
+        <p id="last-updated" class="text-slate-500 text-sm">Last updated: -</p>
+      </div>
+
+      <section class="mt-8">
+        <h2 class="font-semibold text-lg mb-2">Save Quote (Demo)</h2>
+        <p class="text-sm text-slate-600 mb-3">Demo local storage only. Account-linked saving requires backend login.</p>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <label class="field"><span>Name</span><input id="quote-name" type="text" placeholder="Jane Doe" /></label>
+          <label class="field"><span>Email</span><input id="quote-email" type="email" placeholder="jane@email.com" /></label>
+        </div>
+        <div class="mt-3 flex gap-3 flex-wrap">
+          <button id="save-quote-btn" class="btn-primary">Save Quote (Demo)</button>
+          <button id="protected-save-btn" class="btn-secondary">Save to Account (Login Required)</button>
+        </div>
+      </section>
+    </section>
+
+    <aside class="lg:col-span-2 space-y-4">
+      <section class="card p-5">
+        <h3 class="font-semibold">Fee Rules</h3>
+        <p class="text-sm text-slate-600 mt-2">Configurable by source currency. Applied before conversion.</p>
+        <ul id="fee-rules-list" class="text-sm text-slate-700 mt-3 space-y-1"></ul>
+      </section>
+      <section class="card p-5">
+        <h3 class="font-semibold">Rate Source</h3>
+        <p id="source-indicator" class="text-sm text-slate-700 mt-2">Awaiting conversion request...</p>
+      </section>
+    </aside>
+  </main>
+
+  <div id="global-message" class="hidden fixed bottom-4 right-4 z-50 max-w-sm"></div>
+
+  <script src="./js/storage.js"></script>
+  <script src="./js/ui.js"></script>
+  <script src="./js/validation.js"></script>
+  <script src="./js/converter-api.js"></script>
+  <script src="./js/currency.js"></script>
+</body>
+</html>
